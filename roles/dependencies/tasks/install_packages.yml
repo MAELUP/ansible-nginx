@@ -8,6 +8,7 @@
    name:
     - epel-release
     - "@Development tools"
+    - dnf-utils
     - git
     - nginx
    state: present
