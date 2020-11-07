@@ -1,0 +1,2 @@
+[nginx-nodes]
+192.168.209.128 # Add Server IP address, one line per server
