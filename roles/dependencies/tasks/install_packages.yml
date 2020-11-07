@@ -2,9 +2,9 @@
 - name: Disable SELinux
   selinux:
    state: disabled
-   
+
 - name: Install packages
-  yum:
+  dnf:
    name:
     - epel-release
     - "@Development tools"
@@ -13,7 +13,7 @@
    state: present
 
 - name: upgrade all packages
-  yum:
+  dnf:
    name: '*'
    state: latest
 
