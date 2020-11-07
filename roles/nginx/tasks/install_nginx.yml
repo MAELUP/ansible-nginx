@@ -1,0 +1,21 @@
+---
+- name: started and enabled nginx
+  service:
+   name: nginx
+   state: started
+   enabled: yes
+
+- name: remove older Nginx Config
+  file:
+   path: /etc/nginx/nginx
+   state: absent
+
+- name: add nginx config
+  template: 
+   src: ../templates/
+   dest: /etc/nginx/
+
+- name: restart nginx
+  service:
+   name:  nginx
+   state: restarted

@@ -1,0 +1,28 @@
+---
+- name: Disable SELinux
+  selinux:
+   state: disabled
+   
+- name: Install packages
+  yum:
+   name:
+    - epel-release
+    - "@Development tools"
+    - git
+    - nginx
+   state: present
+
+- name: upgrade all packages
+  yum:
+   name: '*'
+   state: latest
+
+- name: open service port 
+  firewalld:
+   port: '{{ item.port }}'
+   permanent: yes
+   state: enabled
+   immediate: yes
+  with_items:
+   - { port: '80/tcp' }
+   - { port: '443/tcp' }
